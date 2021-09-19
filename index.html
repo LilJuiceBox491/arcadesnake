@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html oncontextmenu="return false">
 <head>
   <title>Classic Snake</title>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -25,6 +25,15 @@
 <canvas width="400" height="400" id="game"></canvas>
 <div id="score"></div>
 <script>
+// Console Log Prevention
+window.console.log = function(){
+  console.error('Sorry, for security reasons, console usage is blocked here.');
+  window.console = function() {
+      return false;
+  }
+}  
+  
+// Game
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
 var paused = false;
